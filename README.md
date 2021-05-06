@@ -1,24 +1,33 @@
-# README
+# テーブル情報
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+ユーザー情報:users
+商品情報:items
+購入記録:orders
+発送先情報:deliveryaddress
 
-Things you may want to cover:
+# テーブル設計
 
-* Ruby version
+## users テーブル
+| Column   | Type   | Options     |
+| -------- | ------ | ----------- |
+| email    | string | null: false |
+| password | string | null: false |
+| name     | string | null: false |
 
-* System dependencies
+## items テーブル
+| Column | Type   | Options     |
+| ------ | ------ | ----------- |
+| name   | string | null: false |
+| text   | string | null: false |
+| image  | string | null: false |
 
-* Configuration
+## orders
+| Column | Type   | Options     |
+| ------ | ------ | ----------- |
+| user   | references | null: false |
+| order | references | null: false |
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## deliveryaddress テーブル
+| Column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| address   | text | null: false |
