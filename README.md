@@ -17,14 +17,19 @@
 | name-kana | string | null: false |
 | birthday | string | null: false |
 
-
-
 ## items テーブル
 | Column | Type   | Options     |
 | ------ | ------ | ----------- |
-| name   | string | null: false |
-| text   | string | null: false |
 | image  | string | null: false |
+| name   | string | null: false |
+| text   | text | null: false |
+| category | string | null: false |
+| status | string | null: false |
+| deliverymoney | string | null: false |
+| address | string | null: false |
+| deliveryday | string | null: false |
+| kakaku | string | null: false |
+
 
 ## orders
 | Column | Type   | Options     |
