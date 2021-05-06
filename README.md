@@ -10,9 +10,14 @@
 ## users テーブル
 | Column   | Type   | Options     |
 | -------- | ------ | ----------- |
+| nickname | string | null: false |
 | email    | string | null: false |
 | password | string | null: false |
-| name     | string | null: false |
+| name-zen | string | null: false |
+| name-kana | string | null: false |
+| birthday | string | null: false |
+
+
 
 ## items テーブル
 | Column | Type   | Options     |
