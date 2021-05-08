@@ -3,7 +3,7 @@
 - ユーザー情報:users  
 - 商品出品:items   
 - 購入記録:orders  
-
+- 配送先住所:address-books  
 
 has_manyメソッド  
 1:n  
@@ -23,11 +23,13 @@ foreign_key: true	外部キーを設定（別テーブルのカラムを参照�
 | Column   | Type   | Options     |
 | -------- | ------ | ----------- |
 | nickname | string | null: false |
-| email    | string | null: false |
-| password | string | null: false |
-| name-zen | string | null: false |
-| name-kana | string | null: false |
-| birthday | string | null: false |
+| email    | string | unique: true |
+| encrypted_password | string | null: false |
+| sei-zen | string | null: false |
+| mei-zen | string | null: false |
+| sei-kana | string | null: false |
+| mei-kana | string | null: false |
+| birthday | date | null: false |
 
 ### Association
 
@@ -37,28 +39,40 @@ foreign_key: true	外部キーを設定（別テーブルのカラムを参照�
 ## items テーブル
 | Column | Type   | Options     |
 | ------ | ------ | ----------- |
-| image  | string | null: false |
 | name   | string | null: false |
 | text   | text | null: false |
 | category | string | null: false |
 | status | string | null: false |
-| deliverymoney | string | null: false |
+| delivery-money | string | null: false |
 | address | string | null: false |
-| deliveryday | string | null: false |
-| kakaku | money | null: false |
+| delivery-day | string | null: false |
+| price | money | null: false |
 
 ### Association
  - belongs_to :user
- - has_one :orders
+ - has_one :order
 
 ## orders
 | Column | Type   | Options     |
 | ------ | ------ | ----------- |
 | user   | references | foreign_key: true	 |
 | item | references | foreign_key: true	 |
-| address   | text | null: false |
 
 ### Association
 
-- belongs_to :users
-- belongs_to :items
+- has_one :address-book
+- belongs_to :user
+- belongs_to :item
+
+## address-books
+| Column | Type   | Options     |
+| ------ | ------ | ----------- |
+| city | string | null: false |
+| banchi | int | null: false |
+| tower-num | int | null: false |
+| post-num | int | null: false |
+| Phone | int | null: false |
+
+### Association
+
+- belongs_to :order
