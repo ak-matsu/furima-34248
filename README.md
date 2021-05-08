@@ -23,18 +23,18 @@ foreign_key: true	外部キーを設定（別テーブルのカラムを参照�
 | Column   | Type   | Options     |
 | -------- | ------ | ----------- |
 | nickname | string | null: false |
-| email    | string | unique: true |
+| email    | string | null: false unique: true |
 | encrypted_password | string | null: false |
-| sei-zen | string | null: false |
-| mei-zen | string | null: false |
-| sei-kana | string | null: false |
-| mei-kana | string | null: false |
+| sei_zen | string | null: false |
+| mei_zen | string | null: false |
+| sei_kana | string | null: false |
+| mei_kana | string | null: false |
 | birthday | date | null: false |
 
 ### Association
 
 - has_many :orders
-- has_one :items
+- has_many :items
 
 ## items テーブル
 | Column | Type   | Options     |
@@ -43,9 +43,9 @@ foreign_key: true	外部キーを設定（別テーブルのカラムを参照�
 | text   | text | null: false |
 | category | string | null: false |
 | status | string | null: false |
-| delivery-money | string | null: false |
+| delivery_money | string | null: false |
 | address | string | null: false |
-| delivery-day | string | null: false |
+| delivery_day | string | null: false |
 | price | money | null: false |
 
 ### Association
