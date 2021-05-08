@@ -9,7 +9,7 @@ has_manyメソッド
 1:n  
 belongs_toメソッド  
 n:n
-has_onnメソッド
+has_oneメソッド
 1:1
 
 オプション	役割  
@@ -41,12 +41,12 @@ foreign_key: true	外部キーを設定（別テーブルのカラムを参照�
 | ------ | ------ | ----------- |
 | name   | string | null: false |
 | text   | text | null: false |
-| category | string | null: false |
-| status | string | null: false |
-| delivery_money | string | null: false |
-| address | string | null: false |
-| delivery_day | string | null: false |
-| price | money | null: false |
+| category_id | integer | null: false |
+| status_id | integer | null: false |
+| delivery_money_id | integer | null: false |
+| address_id | integer | null: false |
+| delivery_day_id | integer | null: false |
+| price | integer | null: false |
 
 ### Association
  - belongs_to :user
@@ -60,19 +60,21 @@ foreign_key: true	外部キーを設定（別テーブルのカラムを参照�
 
 ### Association
 
-- has_one :address-book
+- has_one :address_book
 - belongs_to :user
 - belongs_to :item
 
-## address-books
+## address_books
 | Column | Type   | Options     |
 | ------ | ------ | ----------- |
+| user   | references | foreign_key: true	 |
+| item | references | foreign_key: true	 |
+| post_num | integer | null: false |
+| prefecture | string | null: false |
 | city | string | null: false |
-| banchi | int | null: false |
-| tower-num | int | null: false |
-| post-num | int | null: false |
-| Phone | int | null: false |
+| banchi | integer | null: false |
+| tower | integer | null: false |
+| phone | integer | null: false |
 
 ### Association
-
 - belongs_to :order
