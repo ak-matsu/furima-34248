@@ -27,6 +27,7 @@ ActiveHash
 Active_Hashとは、都道府県名などの変更されないデータを  
 モデルファイル内に直接記述することで、  
 データベースへ保存せずにデータを取り扱うことができるGemです。  
+integer型で指定するため、カラムの末尾に_idが必要になる。
   
 _id  
   user_idは、usersテーブルのidが主キーであり、  
@@ -61,7 +62,7 @@ _id
 | category_id | integer | null: false |
 | status_id | integer | null: false |
 | delivery_money_id | integer | null: false |
-| address_id | integer | null: false |
+| prefecture_id | integer | null: false |
 | delivery_day_id | integer | null: false |
 | price | integer | null: false |
 
