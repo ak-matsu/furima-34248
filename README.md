@@ -31,6 +31,7 @@ Active_Hashとは、都道府県名などの変更されないデータを
 _id  
   user_idは、usersテーブルのidが主キーであり、  
   関連性を持つ場合に必要なカラムです。  
+  references 型で記述する際は、カラム名の_idは不要となるため。  
   
 # テーブル設計
 
@@ -83,7 +84,7 @@ _id
 ## address_books
 | Column | Type   | Options     |
 | ------ | ------ | ----------- |
-| order_id | references | foreign_key: true	 |
+| order | references | foreign_key: true	 |
 | post_num | string | null: false |
 | prefecture_id | integer | null: false |
 | city | string | null: false |
