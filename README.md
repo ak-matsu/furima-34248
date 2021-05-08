@@ -2,8 +2,8 @@
 
 - ユーザー情報:users  
 - 商品出品:items   
-- 購入記録:orders  
-- 配送先住所:address-books  
+- 購入管理:orders  
+- 配送先住所:address_books  
 
 has_manyメソッド  
 1:n  
@@ -16,7 +16,13 @@ has_oneメソッド
 null: false	カラムが空の状態では保存できない  
 unique: true	一意性のみ許可（同じ値は保存できない）  
 foreign_key: true	外部キーを設定（別テーブルのカラムを参照する）  
-
+unique: true 一意性制約  
+  
+references型  
+外部キーを追加するときに指定します。  
+例えばt.references :userと指定するとuser_idというカラムが追加されます。  
+ただしこれだけでは外部キー制約がつかないので下記のようにforeign_key: trueを記述します。  
+  
 # テーブル設計
 
 ## users テーブル
@@ -39,6 +45,7 @@ foreign_key: true	外部キーを設定（別テーブルのカラムを参照�
 ## items テーブル
 | Column | Type   | Options     |
 | ------ | ------ | ----------- |
+| user   | references | foreign_key: true	 |
 | name   | string | null: false |
 | text   | text | null: false |
 | category_id | integer | null: false |
@@ -67,14 +74,13 @@ foreign_key: true	外部キーを設定（別テーブルのカラムを参照�
 ## address_books
 | Column | Type   | Options     |
 | ------ | ------ | ----------- |
-| user   | references | foreign_key: true	 |
-| item | references | foreign_key: true	 |
-| post_num | integer | null: false |
-| prefecture | string | null: false |
+| order | references | foreign_key: true	 |
+| post_num | string | null: false |
+| prefecture_id | integer | null: false |
 | city | string | null: false |
-| banchi | integer | null: false |
-| tower | integer | null: false |
-| phone | integer | null: false |
+| banchi | string | null: false |
+| tower | string |  |
+| phone | string | null: false |
 
 ### Association
 - belongs_to :order
