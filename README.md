@@ -20,8 +20,17 @@ unique: true 一意性制約
   
 references型  
 外部キーを追加するときに指定します。  
-例えばt.references :userと指定するとuser_idというカラムが追加されます。  
+例えばt.references :userと指定すると  user_idというカラムが追加されます。  
 ただしこれだけでは外部キー制約がつかないので下記のようにforeign_key: trueを記述します。  
+  
+ActiveHash  
+Active_Hashとは、都道府県名などの変更されないデータを  
+モデルファイル内に直接記述することで、  
+データベースへ保存せずにデータを取り扱うことができるGemです。  
+  
+_id  
+  user_idは、usersテーブルのidが主キーであり、  
+  関連性を持つ場合に必要なカラムです。  
   
 # テーブル設計
 
@@ -74,7 +83,7 @@ references型
 ## address_books
 | Column | Type   | Options     |
 | ------ | ------ | ----------- |
-| order | references | foreign_key: true	 |
+| order_id | references | foreign_key: true	 |
 | post_num | string | null: false |
 | prefecture_id | integer | null: false |
 | city | string | null: false |
