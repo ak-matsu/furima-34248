@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
     @items = Item.all
     # binding.pry
   end
-  
+
   def new
     @item = Item.new
   end
@@ -13,6 +13,7 @@ class ItemsController < ApplicationController
   end
 
   private
+
   def item_params
     params.require(:item).permit(:name, :image, :text)
   end
