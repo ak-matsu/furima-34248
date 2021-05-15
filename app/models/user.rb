@@ -4,10 +4,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :nickname, presence: true
-  validates :sei_zen,presence: true
-  validates :mei_zen,presence: true
-  validates :sei_kana,presence: true
-  validates :mei_kana,presence: true
-  validates :birthday,presence: true
+  with_options presence: true do
+    validates :nickname
+    validates :sei_zen
+    validates :mei_zen
+    validates :sei_kana
+    validates :mei_kana
+    validates :birthday
+  end
 end
