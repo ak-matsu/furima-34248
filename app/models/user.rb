@@ -8,17 +8,14 @@ class User < ApplicationRecord
     validates :nickname
     validates :birthday
 
-    with_options format: {with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/}
-      validates :sei_zen
-      validates :mei_zen
-    end
 
-    with_options format: {with: /\A[ァ-ヶー－]+\z/}
-      validates :sei_kana
-      validates :mei_kana
-    end
+      validates :sei_zen,format: {with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/}
+      validates :mei_zen,format: {with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/}
+      validates :sei_kana,format: {with: /\A[ァ-ヶー－]+\z/}
+      validates :mei_kana,format: {with: /\A[ァ-ヶー－]+\z/}
+
   end
-  
+
   validates :encrypted_password,:password,:password_confirmation,format:{with: /(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{7,}/}
 
 end
