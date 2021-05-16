@@ -6,12 +6,19 @@ class User < ApplicationRecord
 
   with_options presence: true do
     validates :nickname
-    validates :sei_zen,format: {with: /\A[ぁ-んァ-ン一-龥]/}
-    validates :mei_zen,format: {with: /\A[ぁ-んァ-ン一-龥]/}
-    validates :sei_kana,format: {with: /\A[ァ-ヶー－]+\z/}
-    validates :mei_kana,format: {with: /\A[ァ-ヶー－]+\z/}
     validates :birthday
+
+    with_options format: {with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/}
+      validates :sei_zen
+      validates :mei_zen
+    end
+
+    with_options format: {with: /\A[ァ-ヶー－]+\z/}
+      validates :sei_kana
+      validates :mei_kana
+    end
   end
+  
   validates :encrypted_password,:password,:password_confirmation,format:{with: /(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{7,}/}
 
 end
