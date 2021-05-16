@@ -4,17 +4,20 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  with_options presence: true do
-    validates :nickname
-    validates :birthday
-
-
-      validates :sei_zen,format: {with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/}
-      validates :mei_zen,format: {with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/}
-      validates :sei_kana,format: {with: /\A[ァ-ヶー－]+\z/}
-      validates :mei_kana,format: {with: /\A[ァ-ヶー－]+\z/}
-
-  end
+         with_options presence: true do
+          validates :nickname
+          validates :birthday
+      
+          with_options format: {with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/} do
+            validates :sei_zen
+            validates :mei_zen
+          end
+      
+          with_options format: {with: /\A[ァ-ヶー－]+\z/} do
+            validates :sei_kana
+            validates :mei_kana
+          end
+        end
 
   validates :encrypted_password,:password,:password_confirmation,format:{with: /(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{7,}/}
 
