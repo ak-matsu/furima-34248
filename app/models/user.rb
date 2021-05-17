@@ -20,10 +20,6 @@ class User < ApplicationRecord
   end
 
   # 英数字以外の文字が混ざっていれば登録できないように正規表現
-  validates :password, :password_confirmation, format: { with: /(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z0-9\d]{7,}/ }
-
-  # validates :password, length: { minimum: 7 }
-  # VALID_PASSWORD_REGIX = /\A[a-z0-9]+\z/i
-  # validates :password, format: { with: VALID_PASSWORD_REGIX }
-
+  validates :password, :password_confirmation, format: { with: /(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z0-9\d]{6,}/ }
+  
 end
