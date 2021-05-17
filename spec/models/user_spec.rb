@@ -106,7 +106,7 @@ RSpec.describe User, type: :model do
       it 'passwordが半角英数以外のものだとエラーになる' do
         @user.password = '123abcあいう'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password is invalid")
+        expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
       end
 
       it 'sei_zenが空では登録できない' do
