@@ -9,4 +9,7 @@ class Item < ApplicationRecord
   validates :delivery_day_id
   validates :price
   end
+
+  belongs_to :user
+  has_one_attached :image
 end
