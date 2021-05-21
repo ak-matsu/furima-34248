@@ -6,6 +6,6 @@ class Delivery_money < ActiveHash::Base
   ]
 
   include ActiveHash::Associations
-  has_many :item
+  has_many :items
 
   end
