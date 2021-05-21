@@ -2,12 +2,16 @@ class Item < ApplicationRecord
   with_options presence: true do
   validates :user
   validates :text
-  validates :category_id
-  validates :status_id
-  validates :delivery_money_id
-  validates :prefecture_id
-  validates :delivery_day_id
   validates :price
+  
+  #ジャンルの選択が「--」の時は保存できないようにする
+    with_options numericality: { other_than: 1 } do
+      validates :category_id
+      validates :status_id
+      validates :delivery_money_id
+      validates :prefecture_id
+      validates :delivery_day_id
+    end
   end
 
   belongs_to :category
