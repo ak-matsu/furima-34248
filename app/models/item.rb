@@ -1,4 +1,6 @@
 class Item < ApplicationRecord
+  extend ActiveHash::Associations::ActiveRecordExtensions
+
   with_options presence: true do
   validates :user_id
   validates :text
@@ -15,10 +17,11 @@ class Item < ApplicationRecord
   end
 
   belongs_to :category
-  belongs_to :delivery_day
-  belongs_to :delivery_money
+  belongs_to :deliveryday
+  belongs_to :deliverymoney
   belongs_to :prefecture
   belongs_to :status
 
   has_one_attached :image
+  
 end
