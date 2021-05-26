@@ -2,10 +2,10 @@ require 'rails_helper'
 
 RSpec.describe Item, type: :model do
   describe '商品出品機能' do
-    # before do
-    #   @item = FactoryBot.build(:item)
-      # @item.image = fixture_file_upload('app/assets/images/logo.png')
-    # end
+    before do
+      @item = FactoryBot.build(:item)
+      @item.image = fixture_file_upload('app/assets/images/logo.png')
+    end
 
     # 正常テスト
     # context '出品できるとき' do
