@@ -4,15 +4,14 @@ RSpec.describe Item, type: :model do
   describe '商品出品機能' do
     before do
       @item = FactoryBot.build(:item)
-      @item.image = fixture_file_upload('app/assets/images/logo.png')
     end
 
-    # 正常テスト
+    # # 正常テスト
     # context '出品できるとき' do
-      # it '出品画像が投稿できるとき' do
-      #    @item.image
-      #    expect(@item).to be_valid
-      # end
+    #   it '出品画像が投稿できるとき' do
+    #      @item.image
+    #      expect(@item).to be_valid
+    #   end
 
     #   it '商品名が入力される' do
     #     @item.name
@@ -20,7 +19,8 @@ RSpec.describe Item, type: :model do
     #   end
 
     # end
-    # 異常テスト
+
+    # # 異常テスト
     # context '出品に失敗するとき' do
 
     #   it 'imageが空では登録できない'do
@@ -46,6 +46,7 @@ RSpec.describe Item, type: :model do
 
     #   it '価格が空だと登録できない' do
     #   end
+
     # end
   end
 end
