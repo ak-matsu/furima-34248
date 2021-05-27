@@ -22,6 +22,7 @@ class Item < ApplicationRecord
   belongs_to :prefecture
   belongs_to :status
 
+  # 1:1 itemとimageテーブル
   has_one_attached :image
   
 end
