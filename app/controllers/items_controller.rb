@@ -5,6 +5,7 @@ class ItemsController < ApplicationController
   end
 
   def new
+    #ログインしていない状態で投稿しようとするとログインページをアクセス
     if  user_signed_in?
       @item = Item.new
     else

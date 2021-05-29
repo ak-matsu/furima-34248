@@ -62,27 +62,51 @@ RSpec.describe Item, type: :model do
     context '出品に失敗するとき' do
 
       it 'imageが空では登録できない'do
+        @item.image = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Image can't be blank")
       end
 
       it '商品名が空では登録できない'do
+        @item.name = ''
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Name can't be blank")
       end
 
       it  '商品説明が空では登録できない' do
+        @item.text = ''
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Text can't be blank")
       end
 
       it  'カテゴリーが空では登録できない' do
+        @item.category_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Category must be other than 1")
       end
 
       it  '商品の状態が空では登録できない' do
+        @item.status_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Status must be other than 1")
       end
 
       it  '発送元の地域が空では登録できない' do
+        @item.delivery_money_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Delivery money must be other than 1")
       end
 
       it  '発送までの日数が空では登録できない' do
+        @item.delivery_day_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Delivery day must be other than 1")
       end
 
       it '価格が空だと登録できない' do
+        @item.price = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Price can't be blank")
       end
 
     end
