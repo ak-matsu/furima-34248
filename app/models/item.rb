@@ -3,7 +3,12 @@ class Item < ApplicationRecord
 
     with_options presence: true do
       validates :text
-      validates :price
+      validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: "is out of setting range"}
+
+      # \b\d{1,3}(,\d{3})*\b
+
+      validates :image
+      validates :name
     
       #ジャンルの選択が「--」の時は保存できないようにする
       with_options numericality: { other_than: 1 } do
