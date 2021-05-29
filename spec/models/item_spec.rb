@@ -18,6 +18,31 @@ RSpec.describe Item, type: :model do
         expect(@item).to be_valid
       end
 
+      it '商品の説明が入力される' do
+        @item.text
+        
+      end
+      # 商品の詳細
+      it  '商品のカテゴリーが選択される' do
+      end
+
+      it  '商品の状態が選択される' do
+      end
+
+      # 配送について
+      it  '配送料の負担' do
+      end
+
+      it '発送元の地域' do
+      end
+
+      it '発送までの日数' do
+      end
+
+      # 販売価格
+      it '価格が入力される' do
+      end
+
     end
 
     # 異常テスト
