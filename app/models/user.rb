@@ -23,5 +23,4 @@ class User < ApplicationRecord
 
   # 英数字以外の文字が混ざっていれば登録できないように正規表現
   validates :password, :password_confirmation, format: { with: /(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z0-9\d]{6,}/ }
-  
 end
