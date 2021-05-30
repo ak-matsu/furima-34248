@@ -9,50 +9,49 @@ RSpec.describe Item, type: :model do
     # 正常テスト
     context '出品できるとき' do
       it '出品画像が投稿できるとき' do
-        @item.image
         expect(@item).to be_valid
       end
 
       it '商品名が入力される' do
-        @item.name
+        @item.name = '商品名です。'
         expect(@item).to be_valid
       end
 
       it '商品の説明が入力される' do
-        @item.text
+        @item.text = '商品の説明です。'
         expect(@item).to be_valid
       end
 
       # 商品の詳細
       it '商品のカテゴリーが選択される' do
-        @item.category_id
+        @item.category_id = '2'
         expect(@item).to be_valid
       end
 
       it '商品の状態が選択される' do
-        @item.status_id
+        @item.status_id = '2'
         expect(@item).to be_valid
       end
 
       # 配送について
       it '配送料の負担' do
-        @item.delivery_money_id
+        @item.delivery_money_id = '2'
         expect(@item).to be_valid
       end
 
       it '発送元の地域' do
-        @item.prefecture_id
+        @item.prefecture_id = '2'
         expect(@item).to be_valid
       end
 
       it '発送までの日数' do
-        @item.delivery_day_id
+        @item.delivery_day_id = '2'
         expect(@item).to be_valid
       end
 
       # 販売価格
       it '価格が入力される' do
-        @item.price
+        @item.price = '450'
         expect(@item).to be_valid
       end
     end
