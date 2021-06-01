@@ -22,7 +22,7 @@ class Item < ApplicationRecord
 
   belongs_to :category
   belongs_to :deliveryday
-  belongs_to :deliverymoney
+  belongs_to :delivery_money
   belongs_to :prefecture
   belongs_to :status
   belongs_to :user

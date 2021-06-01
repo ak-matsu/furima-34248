@@ -11,7 +11,6 @@ RSpec.describe Item, type: :model do
       it '出品画像が投稿できるとき' do
         expect(@item).to be_valid
       end
-
     end
 
     # 異常テスト
