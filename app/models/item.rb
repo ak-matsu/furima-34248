@@ -21,7 +21,7 @@ class Item < ApplicationRecord
   end
 
   belongs_to :category
-  belongs_to :deliveryday
+  belongs_to :delivery_day
   belongs_to :delivery_money
   belongs_to :prefecture
   belongs_to :status
