@@ -4,10 +4,10 @@
 <div class="item-show">
   <div class="item-box">
     <h2 class="name">
-      <%= "商品名" %>
+      <%= @item.name %>
     </h2>
     <div class="item-img-content">
-      <%= image_tag "item-sample.png" ,class:"item-box-img" %>
+      <%= image_tag @item.image ,class:"item-box-img" %>
       <%# 商品が売れている場合は、sold outを表示しましょう %>
       <div class="sold-out">
         <span>Sold Out!!</span>
