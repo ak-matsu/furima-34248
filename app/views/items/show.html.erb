@@ -24,8 +24,9 @@
       </span>
     </div>
 
+    <%# 分岐させているためコメントアウトで残している。%>
     <%# ログインしているユーザーと出品しているユーザーが、同一人物の場合と同一人物ではない場合で、処理を分ける %>
-  <% if user_signed_in? && @item.user_id%>
+  <% if user_signed_in?%>
 
     <%= link_to "商品の編集", "#", method: :get, class: "item-red-btn" %>
     <p class="or-text">or</p>
@@ -103,7 +104,6 @@
       後ろの商品 ＞
     </a>
   </div>
-  <%# 詳細ページで表示されている商品のカテゴリー名を表示しましょう %>
   <a href="#" class="another-item"><%= @item.category.name %>をもっと見る</a>
 </div>
 
