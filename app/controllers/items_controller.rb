@@ -5,6 +5,8 @@ class ItemsController < ApplicationController
   # before_action :処理させたいメソッド名 only:オプション[:httpメソッド]
   before_action :set_item, only: [:edit, :show, :update, :destroy]
 
+  before_action :set_login, only: [:edit,:update,:destroy]
+
   def index
     @items = Item.all.order('created_at DESC')
   end
@@ -51,5 +53,9 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def set_login
+    redirect_to action: :index unless current_user.id == @item.user_id
   end
 end
