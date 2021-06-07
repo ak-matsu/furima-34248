@@ -86,7 +86,7 @@ _id
 | Column | Type   | Options     |
 | ------ | ------ | ----------- |
 | order | references | foreign_key: true	 |
-| post_num | string | null: false |
+| postnum | string | null: false |
 | prefecture_id | integer | null: false |
 | city | string | null: false |
 | banchi | string | null: false |
