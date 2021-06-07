@@ -3,6 +3,7 @@ class OrdersController < ApplicationController
   def index
     @order = Order.new
     @item = Item.find(params[:item_id])
+    @addressbook = Addressbook.new
 
   end
 

@@ -5,7 +5,7 @@ class CreateAddressbooks < ActiveRecord::Migration[6.0]
       t.string :postnum,        null: false
       t.integer :prefecture_id, null: false
       t.string  :city,          null: false
-      t.string  :banch,         null: false
+      t.string  :banchi,         null: false
       t.string  :tower
       t.string  :phone,         null: false
 
