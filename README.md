@@ -78,11 +78,11 @@ _id
 
 ### Association
 
-- has_one :address_book
+- has_one :addressbook
 - belongs_to :user
 - belongs_to :item
 
-## address_books
+## addressbooks
 | Column | Type   | Options     |
 | ------ | ------ | ----------- |
 | order | references | foreign_key: true	 |
