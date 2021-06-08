@@ -1,7 +1,8 @@
 class OrderAddress
-  
+
   include ActiveModel::Model
-  attr_accessor :hoge,:fuga...
+  # orderテーブルとaddressbookテーブルに保存したいカラム名を指定
+  attr_accessor :
 
   # ここにバリデーションの処理を書く
 
