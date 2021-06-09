@@ -9,10 +9,11 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
-    if @order.save
-      redirect_to root_path
+    if @order.valid?
+      @order.save
+      return redirect_to root_path
     else
-      redirect_to "/items/#{order.item.id}" 
+      render 'index'
     end
   end
 
