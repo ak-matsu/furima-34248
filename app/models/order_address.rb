@@ -7,14 +7,19 @@ class OrderAddress
   # ここにバリデーションの処理を書く
   with_options presence: true do
     validates :user_id
-    
+
     # カード情報
     validates :
+
     # 有効期限
+
 
     # セキュリティコード4桁
 
+
     # 配送先住所
+
+    
     # 郵便番号
     validates :postnum, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
   end
