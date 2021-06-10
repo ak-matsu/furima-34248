@@ -8,8 +8,8 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.new(order_params)
     binding.pry
+    @order = Order.new(order_params)
     if @order.valid?
       @order.save
       return redirect_to root_path
