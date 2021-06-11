@@ -20,6 +20,6 @@ class OrdersController < ApplicationController
 
   private
   def order_params
-    params.require(:order).permit(:postnum,:prefecture_id,:city,:banchi,:tower,:phone).merge(user_id: current_user.id, item_id: params[:item_id])
+    params.permit(:postnum,:prefecture_id,:city,:banchi,:tower,:phone).merge(user_id: current_user.id, item_id: params[:item_id])
   end
 end
