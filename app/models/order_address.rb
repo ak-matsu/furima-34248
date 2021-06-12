@@ -7,11 +7,8 @@ class OrderAddress
     validates :user_id
     validates :postnum, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
   end
-  validates :prefecture, numericality: {other_than: 0, message: "can't be blank"}
+  validates :prefecture_id, numericality: {other_than: 0, message: "can't be blank"}
 
-  with_options numericality: { other_than: 1 } do
-    validates :prefecture_id
-  end
   def save
     # 寄付情報を保存し、変数orderに代入する
     order = order.create(item_id: item_id, user_id: user_id)
