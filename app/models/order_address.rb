@@ -5,13 +5,21 @@ class OrderAddress
   # ここにバリデーションの処理を書く
   with_options presence: true do
     validates :user_id
-    validates :postnum, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
+    validates :item_id
+    validates :postnum, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "Postnum can't be blank"}
+
+    validates :city
+    validates :banchi
+    validates :tower
+    validates :phone
+
   end
   validates :prefecture_id, numericality: {other_than: 0, message: "can't be blank"}
 
+
   def save
     # 寄付情報を保存し、変数orderに代入する
-    order = order.create(item_id: item_id, user_id: user_id)
+    order_address = order_address.create(item_id: item_id, user_id: user_id)
     # 住所を保存する
     # order_idには、変数orderのidと指定する
     Addressbooks.create(order: order, postnum: postnum, prefecture_id: prefecture_id, city: city, banchi: banchi, tower: tower, phone: phone)

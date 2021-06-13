@@ -12,11 +12,11 @@ class OrdersController < ApplicationController
   end
 
   def create
-    # binding.pry
     @item = Item.find(params[:item_id])
     @addressbook = Addressbook.new
 
     @order_address = OrderAddress.new(order_params)
+    # binding.pry
     if @order_address.valid?
       @order_address.save
       return redirect_to root_path
