@@ -13,6 +13,9 @@ class OrdersController < ApplicationController
 
   def create
     # binding.pry
+    @item = Item.find(params[:item_id])
+    @addressbook = Addressbook.new
+
     @order_address = OrderAddress.new(order_params)
     if @order_address.valid?
       @order_address.save
