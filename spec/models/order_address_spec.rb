@@ -1,22 +1,24 @@
 require 'rails_helper'
 
-RSpec.describe OrderAddress, type: :model do
-  describe '商品購入機能'
+describe OrderAddress, type: :model do
+
   before do
-    @orderaddress = FactoryBot.build(:order_address)
+    @order_address = FactoryBot.build(:order_address)
   end
 
-  context '内容に問題ない場合' do
-    # it "priceがあれば保存ができること" do
-    #   expect(@orderaddress).to be_valid
-    # end
-  end
+  describe '商品購入機能' do
+    context '内容に問題ない場合' do
+      # it "priceがあれば保存ができること" do
+      #   expect(@orderaddress).to be_valid
+      # end
+    end
 
-  context '内容に問題がある場合' do
-    # it "priceが空では保存ができないこと" do
-    #   @orderaddress.price = nil
-    #   @oorderaddressrder.valid?
-    #   expect(@orderaddress.errors.full_messages).to include("Price can't be blank")
-    # end
+    context '内容に問題がある場合' do
+      it "postnumが空では保存ができないこと" do
+        @order_address.postnum = nil
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include("Postnum can't be blank")
+      end
+    end
   end
 end
