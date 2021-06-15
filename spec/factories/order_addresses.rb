@@ -6,5 +6,6 @@ FactoryBot.define do
     banchi {'青山1−1−1'}
     tower {'柳ビル103'}
     phone {'09012345678'}
+
   end
 end
