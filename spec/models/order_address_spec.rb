@@ -1,12 +1,14 @@
 require 'rails_helper'
 
 describe OrderAddress, type: :model do
-
-# before内に  user,itemをDBに保存する
-# そのid番号を用いて@order_addressを作成する。
-
   before do
-    @order_address = FactoryBot.build(:order_address)
+    @user = FactoryBot.build(:user)
+    @item = FactoryBot.build(:item)
+
+    @user.save
+    @item.save
+    @order_address = FactoryBot.build(:order_address,user_id: @user.id, item_id: @item.id)
+    # FactoryBot.build(:order_address, 外部キー: userのid, 外部キー: itemのid)
   end
 
   #正常テスト
