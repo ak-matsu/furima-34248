@@ -2,13 +2,11 @@ require 'rails_helper'
 
 describe OrderAddress, type: :model do
   before do
-    @user = FactoryBot.build(:user)
-    @item = FactoryBot.build(:item)
-
-    @user.save
-    @item.save
+    @user = FactoryBot.create(:user)
+    @item = FactoryBot.create(:item)
     @order_address = FactoryBot.build(:order_address,user_id: @user.id, item_id: @item.id)
     # FactoryBot.build(:order_address, 外部キー: userのid, 外部キー: itemのid)
+    sleep(1)
   end
 
   #正常テスト
