@@ -4,6 +4,7 @@ class OrdersController < ApplicationController
     @order = Order.new
     @item = Item.find(params[:item_id])
     @addressbook = Addressbook.new
+    @order_address = OrderAddress.new(order_params)
 
   end
 
