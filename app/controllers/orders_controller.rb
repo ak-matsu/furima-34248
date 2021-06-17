@@ -19,6 +19,7 @@ class OrdersController < ApplicationController
     @order_address = OrderAddress.new(order_params)
     # binding.pry
     if @order_address.valid?
+      pay_item
       @order_address.save
       return redirect_to root_path
     else
@@ -28,7 +29,7 @@ class OrdersController < ApplicationController
 
   private
   def order_params
-    params.permit(:postnum,:prefecture_id,:city,:banchi,:tower,:phone).merge(user_id: current_user.id, item_id: params[:item_id])
+    params.permit(:postnum,:prefecture_id,:city,:banchi,:tower,:phone).merge(user_id: current_user.id, item_id: params[:item_id],token: params[:token])
   end
 
   def pay_item

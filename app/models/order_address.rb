@@ -3,6 +3,8 @@ class OrderAddress
   # orderテーブルとaddressbookテーブルに保存したいカラム名を指定
   attr_accessor :postnum,:prefecture_id,:city,:banchi,:tower,:phone,:user_id,:item_id,:order_id
   # ここにバリデーションの処理を書く
+  attr_accessor :token
+
   with_options presence: true do
     validates :user_id
     validates :item_id
