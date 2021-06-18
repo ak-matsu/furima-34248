@@ -14,6 +14,7 @@ const pay = () => {
       exp_month: formData.get("order_address[exp_month]"),
       exp_year: `20${formData.get("order_address[exp_year]")}`,
     };
+    console.log("フォーム送信時にイベント発火")
     Payjp.createToken(card, (status, response) => {
       if (status == 200) {
         const token = response.id;
