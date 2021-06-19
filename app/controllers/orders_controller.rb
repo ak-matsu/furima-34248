@@ -1,5 +1,9 @@
 class OrdersController < ApplicationController
 
+  # before_action :処理させたいメソッド名 only:オプション[:httpメソッド]
+  before_action :set_item, only: [:create]
+
+
   def index
     @order = Order.new
     @item = Item.find(params[:item_id])
@@ -13,11 +17,8 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @item = Item.find(params[:item_id])
     @addressbook = Addressbook.new
-
     @order_address = OrderAddress.new(order_params)
-    # binding.pry
     if @order_address.valid?
       pay_item
       @order_address.save
@@ -39,5 +40,9 @@ class OrdersController < ApplicationController
       card: order_params[:token],    # カードトークン
       currency: 'jpy'                 # 通貨の種類（日本円）
     )
+  end
+
+  def set_item
+    @item = Item.find(params[:item_id])
   end
 end
