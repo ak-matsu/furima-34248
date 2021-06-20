@@ -9,20 +9,20 @@ const pay = () => {
     const formData = new FormData(formResult);
     
     const card = {
-      number: formData.get("addressbook[number]"),
-      cvc: formData.get("addressbook[cvc]"),
-      exp_month: formData.get("addressbook[exp_month]"),
-      exp_year: `20${formData.get("addressbook[exp_year]")}`,
+      number: formData.get("order_address[number]"),
+      cvc: formData.get("order_address[cvc]"),
+      exp_month: formData.get("order_address[exp_month]"),
+      exp_year: `20${formData.get("order_address[exp_year]")}`,
     };
     Payjp.createToken(card, (status, response) => {
       if (status == 200) {
         const token = response.id;
         console.log(token)
       }
-      document.getElementById("addressbook_number").removeAttribute("name");
-      document.getElementById("addressbook_cvc").removeAttribute("name");
-      document.getElementById("addressbook_exp_month").removeAttribute("name");
-      document.getElementById("addressbook_exp_year").removeAttribute("name");
+      document.getElementById("order_address_number").removeAttribute("name");
+      document.getElementById("order_address_cvc").removeAttribute("name");
+      document.getElementById("order_address_exp_month").removeAttribute("name");
+      document.getElementById("order_address_exp_year").removeAttribute("name");
 
       document.getElementById("charge-form").submit();
 
