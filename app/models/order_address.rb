@@ -1,9 +1,8 @@
 class OrderAddress
   include ActiveModel::Model
   # orderテーブルとaddressbookテーブルに保存したいカラム名を指定
-  attr_accessor :postnum,:prefecture_id,:city,:banchi,:tower,:phone,:user_id,:item_id,:order_id
+  attr_accessor :postnum,:prefecture_id,:city,:banchi,:tower,:phone,:user_id,:item_id,:order_id,:token
   # ここにバリデーションの処理を書く
-  attr_accessor :token
 
   with_options presence: true do
     validates :user_id
