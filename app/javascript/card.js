@@ -1,9 +1,12 @@
 const pay = () => {
+  console.log("フォーム送信時にイベント発火")
+
+
   Payjp.setPublicKey(process.env.PAYJP_PUBLIC_KEY);
   const form = document.getElementById("charge-form");
   form.addEventListener("submit", (e) => {
     // e.preventDefault();
-    console.log("フォーム送信時にイベント発火")
+ 
 
     const formResult = document.getElementById("charge-form");
     const formData = new FormData(formResult);
@@ -28,6 +31,9 @@ const pay = () => {
 
     });
   });
+
+  console.log(card)
+  console.log(token)
 };
 
 window.addEventListener("load", pay);
