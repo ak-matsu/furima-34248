@@ -1,15 +1,12 @@
 class OrdersController < ApplicationController
-
   # before_action :処理させたいメソッド名 only:オプション[:httpメソッド]
   before_action :set_item, only: [:create]
-
 
   def index
     @order = Order.new
     @item = Item.find(params[:item_id])
     @addressbook = Addressbook.new
-    @order_address = OrderAddress.new(order_params)
-
+    @order_address = OrderAddress.new
   end
 
   def new
@@ -21,7 +18,6 @@ class OrdersController < ApplicationController
     @item = Item.find(params[:item_id])
 
     @order_address = OrderAddress.new(order_params)
-    # binding.pry
     if @order_address.valid?
       pay_item
       @order_address.save
@@ -33,7 +29,7 @@ class OrdersController < ApplicationController
 
   private
   def order_params
-    params.permit(:postnum,:prefecture_id,:city,:banchi,:tower,:phone).merge(user_id: current_user.id, item_id: params[:item_id],token: params[:token])
+    params.require(:order_address).permit(:postnum,:prefecture_id,:city,:banchi,:tower,:phone).merge(user_id: current_user.id, item_id: params[:item_id],token: params[:token])
   end
 
   def pay_item
