@@ -11,6 +11,9 @@ class OrdersController < ApplicationController
     @item = Item.find(params[:item_id])
     @addressbook = Addressbook.new
     @order_address = OrderAddress.new
+    if current_user.id == @item.user_id || @item.order != nil
+      return redirect_to root_path
+    end
   end
 
   def new
