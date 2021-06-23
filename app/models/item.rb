@@ -28,4 +28,7 @@ class Item < ApplicationRecord
 
   # 1:1 itemとimageテーブル
   has_one_attached :image
+
+  # 1:1 itemとorderテーブル
+  has_one :order
 end
