@@ -1,11 +1,11 @@
 class ItemsController < ApplicationController
   # ログインしていないユーザーをログインページの画面に促すことができる。
-  before_action :authenticate_user!, only: [:new, :edit, :destroy,:show]
+  before_action :authenticate_user!, only: [:new, :edit, :destroy, :show]
 
   # before_action :処理させたいメソッド名 only:オプション[:httpメソッド]
   before_action :set_item, only: [:edit, :show, :update, :destroy]
 
-  before_action :set_login, only: [:edit,:update,:destroy]
+  before_action :set_login, only: [:edit, :update, :destroy]
 
   def index
     @items = Item.all.order('created_at DESC')
