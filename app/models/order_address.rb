@@ -8,13 +8,12 @@ class OrderAddress
   with_options presence: true do
     validates :user_id
     validates :item_id
+    validates :token
     validates :postnum, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: "Postnum can't be blank" }
 
     validates :city
     validates :banchi
-    validates :tower
     validates :phone,format: { with: /\A0[5789]0\d{4}\d{4}\z/} 
-    validates :token
     
   end
   validates :prefecture_id, numericality: { other_than: 0, message: "can't be blank" }
