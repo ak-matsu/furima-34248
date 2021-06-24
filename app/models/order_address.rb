@@ -14,6 +14,7 @@ class OrderAddress
     validates :banchi
     validates :tower
     validates :phone,format: { with: /\A0[5789]0\d{4}\d{4}\z/} 
+    validates :token
     
   end
   validates :prefecture_id, numericality: { other_than: 0, message: "can't be blank" }
