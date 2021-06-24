@@ -48,12 +48,6 @@ describe OrderAddress, type: :model do
         expect(@order_address.errors.full_messages).to include("Banchi can't be blank")
       end
 
-      it '建物が空白だと登録できない' do
-        @order_address.tower = ''
-        @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Tower can't be blank")
-      end
-
       it '電話番号が空白だと登録できない' do
         @order_address.phone = ''
         @order_address.valid?
