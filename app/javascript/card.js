@@ -27,7 +27,5 @@ const pay = () => {
       document.getElementById("charge-form").submit();
     });
   });
-  console.log(card)
-  console.log(token)
 };
 window.addEventListener("load", pay);
