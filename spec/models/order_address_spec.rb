@@ -15,6 +15,11 @@ describe OrderAddress, type: :model do
       it '商品購入できるとき' do
         expect(@order_address).to be_valid
       end
+
+      it '建物が空でも保存できること' do
+        @order_address.tower = ''
+        expect(@order_address).to be_valid
+      end
     end
 
     # 異常テスト
