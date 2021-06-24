@@ -1,11 +1,12 @@
 class OrdersController < ApplicationController
   # before_action :処理させたいメソッド名 only:オプション[:httpメソッド]
-  before_action :set_item, only: [:create]
+  before_action :set_item, only: [:index,:create]
 
   # ログインしていないユーザーをログインページの画面に促すことができる。
   before_action :authenticate_user!, only: [:index]
 
   def index
+    @order_address = OrderAddress.new
     return redirect_to root_path if current_user.id == @item.user_id || !@item.order.nil?
   end
 
