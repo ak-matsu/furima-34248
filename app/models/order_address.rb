@@ -13,7 +13,9 @@ class OrderAddress
     validates :city
     validates :banchi
     validates :tower
-    validates :phone
+    validates :phone,format: { with: /\A0[5789]0\d{4}\d{4}\z/} 
+    
+
   end
   validates :prefecture_id, numericality: { other_than: 0, message: "can't be blank" }
 
@@ -22,7 +24,7 @@ class OrderAddress
     order = Order.create(item_id: item_id, user_id: user_id)
     # 住所を保存する
     # order_idには、変数orderのidと指定する
-    Addressbook.create(order_id: order[:id], postnum: postnum, prefecture_id: prefecture_id, city: city, banchi: banchi,
+    Addressbook.create(order_id: order.id, postnum: postnum, prefecture_id: prefecture_id, city: city, banchi: banchi,
                        tower: tower, phone: phone)
   end
 end
