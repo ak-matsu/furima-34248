@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   # before_action :処理させたいメソッド名 only:オプション[:httpメソッド]
-  before_action :set_item, only: [:index,:create]
+  before_action :set_item, only: [:index, :create]
 
   # ログインしていないユーザーをログインページの画面に促すことができる。
   before_action :authenticate_user!, only: [:index]
@@ -27,14 +27,16 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order_address).permit(:postnum, :prefecture_id, :city, :banchi, :tower, :phone).merge(user_id: current_user.id,item_id: params[:item_id], token: params[:token])
+    params.require(:order_address).permit(:postnum, :prefecture_id, :city, :banchi, :tower, :phone).merge(
+      user_id: current_user.id, item_id: params[:item_id], token: params[:token]
+    )
   end
 
   def pay_item
     Payjp.api_key = ENV['PAYJP_SECRET_KEY']
     Payjp::Charge.create(
-      amount: @item.price,  # 商品の値段
-      card: order_params[:token],    # カードトークン
+      amount: @item.price, # 商品の値段
+      card: order_params[:token], # カードトークン
       currency: 'jpy'                 # 通貨の種類（日本円）
     )
   end
