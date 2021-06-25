@@ -59,6 +59,31 @@ describe OrderAddress, type: :model do
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("Phone can't be blank")
       end
+
+      it '12桁以上では登録できないこと' do
+        @order_address.phone = '090111122223'
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include("Phone is invalid")
+      end
+
+      it '数字のみでないと登録できないこと（英数字混合）' do
+        @order_address.phone = '090abcd2222'
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include("Phone is invalid")
+      end
+
+      it '数字のみでないと登録できないこと（ハイフンあり）' do
+        @order_address.phone = '090-1111-2222'
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include("Phone is invalid")
+      end
+
+      it  '全角文字では登録できないこと'  do
+        @order_address.phone = 'あいうえおかきくけこ'
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include("Phone is invalid")
+      end
     end
   end
 end
+
