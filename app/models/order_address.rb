@@ -12,7 +12,7 @@ class OrderAddress
     validates :postnum, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: "Postnum can't be blank" }
     validates :city
     validates :banchi
-    validates :phone, format: { with: /\A0(\d{1}[-(]?\d{4}|\d{2}[-(]?\d{3}|\d{3}[-(]?\d{2}|\d{4}[-(]?\d{1})[-)]?\d{4}\z|\A0[5789]0[-]?\d{4}[-]?\d{4}\z/ }
+    validates :phone, format: { with: /\A0(\d{1}?\d{4}|\d{2}?\d{3}|\d{3}?\d{2}|\d{4}?\d{1})?\d{4}\z|\A0[5789]0?\d{4}?\d{4}\z/ }
   end
   validates :prefecture_id, numericality: { other_than: 0, message: "can't be blank" }
 
