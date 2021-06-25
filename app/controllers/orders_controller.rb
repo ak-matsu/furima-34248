@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
   before_action :set_item, only: [:index, :create]
 
   # ログインしていないユーザーをログインページの画面に促すことができる。
-  before_action :authenticate_user!, only: [:index]
+  before_action :authenticate_user!, only: [:index,:create]
 
   def index
     @order_address = OrderAddress.new
@@ -13,7 +13,6 @@ class OrdersController < ApplicationController
   def create
     @addressbook = Addressbook.new
     @order_address = OrderAddress.new(order_params)
-    # binding.pry
 
     if @order_address.valid?
       pay_item
