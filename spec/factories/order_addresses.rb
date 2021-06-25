@@ -5,6 +5,7 @@ FactoryBot.define do
     prefecture_id { 2 }
     city { '横浜' }
     banchi { '青山1−1−1' }
+    tower { '柳ビル103' }
     phone { '09012345678' }
   end
 end
