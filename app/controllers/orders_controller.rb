@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
   before_action :set_item, only: [:index, :create]
 
   # ログインしていないユーザーをログインページの画面に促すことができる。
-  before_action :authenticate_user!, only: [:index,:create]
+  before_action :authenticate_user!, only: [:index, :create]
 
   def index
     @order_address = OrderAddress.new
