@@ -78,15 +78,15 @@ _id
 
 ### Association
 
-- has_one :address_book
+- has_one :addressbook
 - belongs_to :user
 - belongs_to :item
 
-## address_books
+## addressbooks
 | Column | Type   | Options     |
 | ------ | ------ | ----------- |
 | order | references | foreign_key: true	 |
-| post_num | string | null: false |
+| postnum | string | null: false |
 | prefecture_id | integer | null: false |
 | city | string | null: false |
 | banchi | string | null: false |
