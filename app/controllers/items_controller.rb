@@ -3,9 +3,12 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :destroy]
 
   # before_action :処理させたいメソッド名 only:オプション[:httpメソッド]
-  before_action :set_item, only: [:show]
-
+  before_action :set_item, only: [:show,:edit]
+  
   before_action :set_login, only: [:edit, :update, :destroy]
+
+    # 「売却済みの商品のページにアクセスしようとすると、トップページに戻される」
+    before_action :set_out, only: [:edit, :update, :destroy]
 
   def index
     @items = Item.all.order('created_at DESC')
@@ -28,7 +31,6 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    return redirect_to root_path unless @item.order.nil?
   end
 
   def update
@@ -57,5 +59,9 @@ class ItemsController < ApplicationController
 
   def set_login
     redirect_to action: :index unless current_user.id == @item.user_id
+  end
+
+  def set_out
+    return redirect_to root_path unless @item.order.nil?
   end
 end

@@ -76,8 +76,6 @@
     <%# /カード情報の入力 %>
     
     <%# 配送先の入力 %>
-    <%#= form_with(url: item_orders_path,model: @order_address, local: true) do |form| %>
-
     <div class='shipping-address-form'>
       <h1 class='info-input-haedline'>
         配送先入力
@@ -129,7 +127,6 @@
     <div class='buy-btn'>
       <%= f.submit "購入" ,class:"buy-red-btn" %>
     </div>
-    <%# end %>
    <%end%>
   </div>
 </div>

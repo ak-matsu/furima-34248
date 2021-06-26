@@ -11,7 +11,6 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @addressbook = Addressbook.new
     @order_address = OrderAddress.new(order_params)
 
     if @order_address.valid?
