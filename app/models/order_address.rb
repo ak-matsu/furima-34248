@@ -15,8 +15,9 @@ class OrderAddress
     validates :phone, format: { with: /\A0(\d{1}?\d{4}|\d{2}?\d{3}|\d{3}?\d{2}|\d{4}?\d{1})?\d{4}\z|\A0[5789]0?\d{4}?\d{4}\z/ }
   end
 
+  validates :prefecture_id, numericality: { other_than: 0, message: "can't be blank" }
+
   def save
-    # binding.pry
     order = Order.create(item_id: item_id, user_id: user_id)
     # 住所を保存する
     # order_idには、変数orderのidと指定する
