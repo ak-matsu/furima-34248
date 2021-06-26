@@ -14,7 +14,6 @@ class OrderAddress
     validates :banchi
     validates :phone, format: { with: /\A0(\d{1}?\d{4}|\d{2}?\d{3}|\d{3}?\d{2}|\d{4}?\d{1})?\d{4}\z|\A0[5789]0?\d{4}?\d{4}\z/ }
   end
-  validates :prefecture_id, numericality: { other_than: 0, message: "can't be blank" }
 
   def save
     # binding.pry
