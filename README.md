@@ -95,3 +95,4 @@ _id
 
 ### Association
 - belongs_to :order
+
